@@ -109,7 +109,8 @@ class App extends React.Component {
                         deleteNote = {this.deleteNote}
                     />
                 </Modal>
-                <NoteList noteList={this.state.noteList} editNote = {this.editNote} />
+                {this.state.noteList.length===0? <div className="instruction" >Please press + button add notes </div> : <NoteList noteList={this.state.noteList} editNote = {this.editNote} />}
+                
             </div>
         );
     }

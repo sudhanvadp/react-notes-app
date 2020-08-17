@@ -57,3 +57,9 @@ button {
 	opacity: 0;
 	transform: translateX(-100px);
 }
+
+.instruction {
+	color: darkgray;
+	text-align: center;
+	top: 50%;
+}
