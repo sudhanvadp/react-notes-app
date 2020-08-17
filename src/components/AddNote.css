@@ -1,0 +1,17 @@
+.formButton {
+	border: none;
+	color: white;
+	padding: 10px 15px;
+	display: inline-block;
+	font-size: 16px;
+	margin: 5px;
+	border-radius: 20px;
+}
+
+textarea {
+	width: 90%;
+	padding: 10px 15px;
+	margin: 5px;
+	font-size: 16px;
+	border-color: cadetblue;
+}
