@@ -1,5 +1,6 @@
 import React from 'react';
 import AddNote from './AddNote';
+import SearchBox from './SearchBox';
 import NoteList from './NoteList';
 import Modal from 'react-modal';
 import './App.css'
@@ -25,7 +26,7 @@ class App extends React.Component {
 
     addNote = (text) => {
         this.setState(prevState => ({
-            noteList: [...prevState.noteList, text],
+            noteList: [...prevState.noteList, {text, visible: true}],
             isOpen: false
           }))
         
@@ -58,7 +59,7 @@ class App extends React.Component {
         const {noteList} = this.state;
         const newArray = [
             ...noteList.slice(0, index),
-            text, 
+            {text, visible: true}, 
             ...noteList.slice(index + 1)
           ]
         this.setState({
@@ -79,12 +80,30 @@ class App extends React.Component {
         })
     }
 
+    searchFire = (text) => {
+        text = text.toUpperCase();
+        console.log("Search Text: "+ text);
+        const {noteList} = this.state;
+        noteList.map((item, i) => {
+            var curr = item.text;
+            if(curr.toUpperCase().indexOf(text)>-1) {
+                item.visible=true;
+            }
+            else{
+                item.visible=false;
+            }
+        });
+
+        this.forceUpdate()
+    }
+
     render() {
     const { isOpen,  seletedIndex} = this.state;
 
         return (
             <div>
                 <div className="header" >React Notes</div>
+                <SearchBox searchFire = {this.searchFire}/>
                 <button className="plusButton" onClick={this.onClickAdd}>+</button>
                 <Modal
                     id="basic modal"

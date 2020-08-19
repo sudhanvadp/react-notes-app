@@ -7,7 +7,8 @@ class NoteList extends Component {
     render() {
         const { noteList } = this.props;
         const notesDiv = noteList.map((note, index) => {
-        return <div key={index} className="card" onClick = {() => this.editNote(index)} >{note}</div>;
+            if(note.visible)
+        return <div key={index} className="card" onClick = {() => this.editNote(index)} >{note.text}</div>;
         });
         
         return (
