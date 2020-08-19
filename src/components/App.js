@@ -124,7 +124,7 @@ class App extends React.Component {
                         cancelNote={this.cancelNote} 
                         index={this.state.seletedIndex} 
                         updateList={this.updateList}
-                        text={seletedIndex===-1? "": this.state.noteList[seletedIndex]}
+                        text={seletedIndex===-1? "": this.state.noteList[seletedIndex].text}
                         deleteNote = {this.deleteNote}
                     />
                 </Modal>
