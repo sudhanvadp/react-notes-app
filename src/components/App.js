@@ -76,7 +76,8 @@ class App extends React.Component {
           ]
         this.setState({
             noteList : newArray,
-            isOpen: false
+            isOpen: false,
+            seletedIndex: -1
         })
     }
 
